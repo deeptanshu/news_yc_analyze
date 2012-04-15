@@ -1,0 +1,17 @@
+#!/bin/bash
+INTERVAL=1800
+COUNT=1
+db_count_prev=0
+while [ $COUNT -le 144 ]
+do
+    python rss_link_extraction.py
+    db_count=$(sqlite3 news_yc.db "SELECT Count(*) FROM Posts;")
+    echo -e "Scrape Count = $COUNT \t Total titles =  $db_count \t New Titles =  `expr $db_count - $db_count_prev` \t "
+    echo -e "$db_count \t `date`" >> dbrows
+    let "db_count_prev=db_count"
+    (( COUNT++ ))
+    sleep $INTERVAL
+done
+ 
+
+
