@@ -18,5 +18,5 @@ Here is brief outline of the files at present and what they do:
 * *html/* Contains templates in django templating format. 
 
 Screenshot: 
-![screenshot](deeptanshu.github.com/news_yc_analyze/img/screenshot.png)
+![screenshot](img/screenshot.png)
    
